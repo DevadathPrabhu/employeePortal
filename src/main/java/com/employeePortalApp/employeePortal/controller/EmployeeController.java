@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -22,10 +23,11 @@ public class EmployeeController {
 	 * REST API to get the list of employees.
 	 * @return List<Employee>
 	 */
+	@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping(value="/employee", method=RequestMethod.GET)
 	public List<Employee> getEmployee() {
 		
-		return employeeService.getAllEmployees();
+		return employeeService.getEmployees();
 		
 	}
 	
@@ -33,10 +35,11 @@ public class EmployeeController {
 	 * REST API to save the employee details with employee details provided in the request.
 	 * @param Employee
 	 */
+	@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping(value="/employee", method=RequestMethod.POST)
-	public void saveEmployee(@RequestBody Employee employee) {
+	public Employee saveEmployee(@RequestBody Employee employee) {
 		
-		employeeService.saveEmployee(employee);
+		return employeeService.saveEmployee(employee);
 		
 	}
 	

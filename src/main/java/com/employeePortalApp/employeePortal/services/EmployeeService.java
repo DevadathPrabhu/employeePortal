@@ -20,7 +20,7 @@ public class EmployeeService {
 	 * Returns all the employees in the H2 DB.
 	 * @return List<Employee>
 	 */
-	public List<Employee> getAllEmployees() {
+	public List<Employee> getEmployees() {
 
 		List<Employee> empList = new ArrayList<Employee>();
 		Iterable<Employee> empIterble = employeeRepo.findAll();
@@ -39,10 +39,10 @@ public class EmployeeService {
 	 * Saves the employee details to the H2 DB.
 	 * @param Employee
 	 */
-	public void saveEmployee(Employee e) {
+	public Employee saveEmployee(Employee e) {
 
-		employeeRepo.save(e);
-
+		return employeeRepo.save(e);
+		
 	}
 
 }
