@@ -48,12 +48,12 @@ public class EmployeeController {
 	 * In this case, employee id is randomly generated and rest details are hard coded.
 	 */
 	@RequestMapping(value="/employeeWithoutBody", method=RequestMethod.POST)
-	public void saveEmployeeWithoutBody() {
+	public Employee saveEmployeeWithoutBody() {
 		
 		Random randomNum = new Random();
 		Employee employee = new Employee(randomNum.nextInt(), "Devadath", "Prabhu", "M", "31/05/1994", "R&D");
 		
-		employeeService.saveEmployee(employee);
+		return employeeService.saveEmployee(employee);
 		
 	}
 }

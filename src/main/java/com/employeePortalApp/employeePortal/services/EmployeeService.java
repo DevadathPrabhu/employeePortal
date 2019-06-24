@@ -14,7 +14,7 @@ import com.employeePortalApp.employeePortal.repo.EmployeeRepo;
 public class EmployeeService {
 
 	@Autowired
-	EmployeeRepo employeeRepo;
+	private EmployeeRepo employeeRepo;
 	
 	/*
 	 * Returns all the employees in the H2 DB.
@@ -23,14 +23,13 @@ public class EmployeeService {
 	public List<Employee> getEmployees() {
 
 		List<Employee> empList = new ArrayList<Employee>();
-		Iterable<Employee> empIterble = employeeRepo.findAll();
-		Iterator<Employee> empIterator = empIterble.iterator();
+		
+		Iterable<Employee> empIterable = employeeRepo.findAll();
+		Iterator<Employee> empIterator = empIterable.iterator();
 
-		while (empIterator.hasNext()) {
-			Employee e = (Employee) empIterator.next();
-			empList.add(e);
-		}
+		empIterator.forEachRemaining(empList::add);
 
+		
 		return empList;
 		
 	}

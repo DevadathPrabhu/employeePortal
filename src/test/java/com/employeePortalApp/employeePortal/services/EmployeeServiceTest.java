@@ -11,9 +11,10 @@ import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Spy;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.employeePortalApp.employeePortal.entity.Employee;
@@ -23,11 +24,12 @@ import com.employeePortalApp.employeePortal.repo.EmployeeRepo;
 @SpringBootTest
 public class EmployeeServiceTest {
 
-	@Autowired
-	EmployeeService employeeService;
+	@Spy
+	@InjectMocks
+	private EmployeeService employeeService;
 	
-	@MockBean
-	EmployeeRepo employeeRepo;
+	@Mock
+	private EmployeeRepo employeeRepo;
 	
 	@Test
 	public void testGetEmployeesWithDetail() {
