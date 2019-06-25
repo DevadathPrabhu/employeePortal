@@ -89,4 +89,8 @@ public class Employee {
 		this.department = department;
 	}
 	
+	public static int compareEmployees(Employee e1, Employee e2) {
+		return e1.getfName().compareTo(e2.getfName());
+	}
+	
 }

@@ -1,6 +1,7 @@
 package com.employeePortalApp.employeePortal.services;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
@@ -20,7 +21,7 @@ public class EmployeeService {
 	 * Returns all the employees in the H2 DB.
 	 * @return List<Employee>
 	 */
-	public List<Employee> getEmployees() {
+	public List<Employee> getEmployees(Boolean sort) {
 
 		List<Employee> empList = new ArrayList<Employee>();
 		
@@ -29,6 +30,8 @@ public class EmployeeService {
 
 		empIterator.forEachRemaining(empList::add);
 
+		if(sort)
+			Collections.sort(empList, Employee::compareEmployees);
 		
 		return empList;
 		
