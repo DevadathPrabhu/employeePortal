@@ -3,6 +3,8 @@
 This project consists of backend for the employee portal. There are 3 REST APIs exposed which are used by the UI to save
 or get the employee information.
 
+Frontend project is available here - https://github.com/DevadathPrabhu/employeePortalUI
+
 Technologies used: Java, Springboot, JUnit
 
 Setting up the project:
